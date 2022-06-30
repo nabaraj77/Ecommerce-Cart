@@ -48,7 +48,43 @@ function App() {
     setCartItems(updatedCart);
     setCartCount(cartCount - 1);
   };
+  const minusHandler = (id) => {
+    let existItem = cartItems.find((item) => {
+      return item.id === id;
+    });
+    if (existItem) {
+      let updatedCart = cartItems.map((item) => {
+        if (item.id === existItem.id) {
+          console.log("Duplicate");
+          console.log(existItem.quantity);
+          return { ...item, quantity: item.quantity - 1 };
+        } else {
+          return item;
+        }
+      });
+      console.log(updatedCart);
+      setCartItems(updatedCart);
+    }
+  };
 
+  const plusHandler = (id) => {
+    let existItem = cartItems.find((item) => {
+      return item.id === id;
+    });
+    if (existItem) {
+      let updatedCart = cartItems.map((item) => {
+        if (item.id === existItem.id) {
+          console.log("Duplicate");
+          console.log(existItem.quantity);
+          return { ...item, quantity: item.quantity + 1 };
+        } else {
+          return item;
+        }
+      });
+      console.log(updatedCart);
+      setCartItems(updatedCart);
+    }
+  };
   // console.log(cartItems);
   return (
     <>
@@ -68,10 +104,12 @@ function App() {
             exact
             path="/cart"
             element={
-              <>
-                <Navbar cartCount={cartCount} />
-                <Cart cartItems={cartItems} deleteHandler={deleteHandler} />
-              </>
+              <Cart
+                cartItems={cartItems}
+                deleteHandler={deleteHandler}
+                minusHandler={minusHandler}
+                plusHandler={plusHandler}
+              />
             }
           ></Route>
         </Routes>
