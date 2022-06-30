@@ -5,6 +5,7 @@ const Data = [
     img: "./Images/iphone.jpg",
     price: 1200,
     quantity: 1,
+    isAvailable: true,
   },
   {
     id: 2,
@@ -12,6 +13,7 @@ const Data = [
     img: "./Images/tv.jpg",
     price: 10,
     quantity: 1,
+    isAvailable: true,
   },
   {
     id: 3,
@@ -19,6 +21,7 @@ const Data = [
     img: "./Images/samsung.jpg",
     price: 200,
     quantity: 1,
+    isAvailable: false,
   },
   {
     id: 4,
@@ -26,6 +29,7 @@ const Data = [
     img: "./Images/bed.jpeg",
     price: 100,
     quantity: 1,
+    isAvailable: true,
   },
   {
     id: 5,
@@ -33,6 +37,7 @@ const Data = [
     img: "./Images/bike.webp",
     price: 1200,
     quantity: 1,
+    isAvailable: false,
   },
   {
     id: 6,
@@ -40,6 +45,7 @@ const Data = [
     img: "./Images/sofa.jpg",
     price: 10,
     quantity: 1,
+    isAvailable: true,
   },
   {
     id: 7,
@@ -47,6 +53,7 @@ const Data = [
     img: "./Images/car.jpg",
     price: 200,
     quantity: 1,
+    isAvailable: true,
   },
   {
     id: 8,
@@ -54,6 +61,7 @@ const Data = [
     img: "./Images/iphone.jpg",
     price: 1200,
     quantity: 1,
+    isAvailable: true,
   },
   {
     id: 9,
@@ -61,6 +69,7 @@ const Data = [
     img: "./Images/tv.jpg",
     price: 10,
     quantity: 1,
+    isAvailable: true,
   },
   {
     id: 10,
@@ -68,6 +77,7 @@ const Data = [
     img: "./Images/samsung.jpg",
     price: 200,
     quantity: 1,
+    isAvailable: true,
   },
   {
     id: 11,
@@ -75,6 +85,7 @@ const Data = [
     img: "./Images/bed.jpeg",
     price: 100,
     quantity: 1,
+    isAvailable: true,
   },
   {
     id: 12,
@@ -82,6 +93,7 @@ const Data = [
     img: "./Images/bike.webp",
     price: 1200,
     quantity: 1,
+    isAvailable: false,
   },
   {
     id: 13,
@@ -89,6 +101,7 @@ const Data = [
     img: "./Images/sofa.jpg",
     price: 10,
     quantity: 1,
+    isAvailable: true,
   },
   {
     id: 14,
@@ -96,6 +109,7 @@ const Data = [
     img: "./Images/car.jpg",
     price: 200,
     quantity: 1,
+    isAvailable: true,
   },
 ];
 export default Data;

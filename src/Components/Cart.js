@@ -1,6 +1,6 @@
 import "./Cart.css";
 
-const Cart = ({ cartItems }) => {
+const Cart = ({ cartItems, deleteHandler }) => {
   console.log(cartItems);
   let totalAmount = cartItems.reduce((acc, val) => {
     return (acc += val.quantity * val.price);
@@ -24,14 +24,19 @@ const Cart = ({ cartItems }) => {
               <p>Rs: ${item.price}</p>
             </div>
 
-            <p className="amount">Tot: ${item.quantity * item.price}</p>
-            <i className="fa-solid fa-trash"></i>
+            <p className="amount">
+              Tot: ${Math.trunc(item.quantity * item.price)}
+            </p>
+            <i
+              className="fa-solid fa-trash trash"
+              onClick={() => deleteHandler(item.id)}
+            ></i>
           </div>
         );
       })}
 
       {totalAmount > 0 ? (
-        <span className="total-amount">Total:${totalAmount}</span>
+        <span className="total-amount">Total:${Math.trunc(totalAmount)}</span>
       ) : (
         "Cart Empty: Please add the items to the cart"
       )}

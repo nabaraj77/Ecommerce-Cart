@@ -3,12 +3,15 @@ import Navbar from "./Components/Navbar";
 import Data from "./Components/Data";
 import { useState } from "react";
 import Cart from "./Components/Cart";
+import { Route, Routes } from "react-router-dom";
 
 function App() {
   const [cartCount, setCartCount] = useState(0);
   const [cartItems, setCartItems] = useState([]);
   const addToCart = (id) => {
     setCartCount(cartCount + 1);
+
+    //SHOW CART ON CLICK
 
     //CHECK ITEMS IF EXISTS IN THE CART
 
@@ -36,13 +39,43 @@ function App() {
         }),
       ]);
     }
+    //DELETING THE ITEMS
   };
+  const deleteHandler = (id) => {
+    const updatedCart = cartItems.filter((item) => {
+      return item.id !== id;
+    });
+    setCartItems(updatedCart);
+    setCartCount(cartCount - 1);
+  };
+
   // console.log(cartItems);
   return (
     <>
-      <Navbar cartCount={cartCount} />
-      <Main data={Data} cartCount={cartCount} addToCart={addToCart} />
-      <Cart cartItems={cartItems} />
+      {
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <Navbar cartCount={cartCount} />
+                <Main data={Data} cartCount={cartCount} addToCart={addToCart} />
+              </>
+            }
+          ></Route>
+
+          <Route
+            exact
+            path="/cart"
+            element={
+              <>
+                <Navbar cartCount={cartCount} />
+                <Cart cartItems={cartItems} deleteHandler={deleteHandler} />
+              </>
+            }
+          ></Route>
+        </Routes>
+      }
     </>
   );
 }

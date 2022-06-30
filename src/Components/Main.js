@@ -9,11 +9,23 @@ const Main = ({ data, addToCart }) => {
         return (
           <div className="items" key={value}>
             <h4 className="item-name">{item.name}</h4>
-            <img src={item.img} alt={item.name} className="image" />
+            <div className="in-stock">
+              <img src={item.img} alt={item.name} className="image" />
+              {item.isAvailable === false && (
+                <span className="not-available">Out of Stock</span>
+              )}
+            </div>
+
             <p className="price">Price: ${item.price}</p>
-            <button className="btn-cart" onClick={() => addToCart(item.id)}>
-              Add to Cart
-            </button>
+            {item.isAvailable === true ? (
+              <button className="btn-cart" onClick={() => addToCart(item.id)}>
+                Add to Cart
+              </button>
+            ) : (
+              <span className="no-items">
+                <h4>Product will be Available soon</h4>
+              </span>
+            )}
           </div>
         );
       })}
