@@ -25,6 +25,13 @@
   width: 10%;
   display: flex;
   align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+
+  padding: 3px;
+  border-radius: 10px;
+  background-color: whitesmoke;
+  text-align: center;
 }
 .price {
   padding-left: 2%;

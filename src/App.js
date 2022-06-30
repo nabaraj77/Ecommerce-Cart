@@ -49,6 +49,7 @@ function App() {
     setCartCount(cartCount - 1);
   };
   const minusHandler = (id) => {
+    console.log("- clicked", id);
     let existItem = cartItems.find((item) => {
       return item.id === id;
     });
@@ -57,6 +58,9 @@ function App() {
         if (item.id === existItem.id) {
           console.log("Duplicate");
           console.log(existItem.quantity);
+          if (item.quantity === 0) {
+            return { ...item, quantity: 0 };
+          }
           return { ...item, quantity: item.quantity - 1 };
         } else {
           return item;
